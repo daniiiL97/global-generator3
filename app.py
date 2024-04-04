@@ -3,20 +3,8 @@ from transformers import GPT2LMHeadModel, GPT2Tokenizer
 from bs4 import BeautifulSoup
 import torch
 
-# URL файла с моделью на Google Диске
-model_url = 'https://drive.google.com/drive/folders/1I4gCqjmbxy5c9eNb7owb90AgKDt-Vqcn?usp=drive_link'
-
-# Скачивание модели
-def download_model(url):
-    with requests.get(url) as r:
-        return io.BytesIO(r.content)
-
-# Загрузка модели
-model_bytes = download_model(model_url)
-
-# Загрузка предобученной модели и токенизатора
-tokenizer = GPT2Tokenizer.from_pretrained('sberbank-ai/rugpt3small_based_on_gpt2')
-model = GPT2LMHeadModel.from_pretrained('sberbank-ai/rugpt3small_based_on_gpt2', state_dict=torch.load(model_bytes, map_location='cpu'))
+tokenizer = GPT2Tokenizer.from_pretrained("./essays/")
+model = GPT2LMHeadModel.from_pretrained("./essays/")
 
 # Заголовок приложения
 st.title("Глобал ГЕЙнерация")
