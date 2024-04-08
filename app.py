@@ -3,8 +3,8 @@ from transformers import GPT2LMHeadModel, GPT2Tokenizer
 from bs4 import BeautifulSoup
 import torch
 
-tokenizer = GPT2Tokenizer.from_pretrained("./essays/")
-model = GPT2LMHeadModel.from_pretrained("./essays/")
+tokenizer = GPT2Tokenizer.from_pretrained("danik97/global-generator-ai")
+model = GPT2LMHeadModel.from_pretrained("danik97/global-generator-ai")
 
 # Заголовок приложения
 st.title("Глобал ГЕЙнерация")
